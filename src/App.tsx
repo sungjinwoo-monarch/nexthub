@@ -7,7 +7,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { PlayerCardData } from './types';
 import { generateCardSvg } from './utils/svgGenerator';
-import { sanitizeUsername } from './utils/githubFetcher';
+import { sanitizeUsername, getPlayerCardData } from './utils/githubFetcher';
 import { LanguageD3Chart } from './components/LanguageD3Chart';
 import { BrandCenter } from './components/BrandCenter';
 import { AnimatedCounter } from './components/AnimatedCounter';
@@ -110,11 +110,23 @@ export default function App() {
         url += `?country=${encodeURIComponent(countryCode)}`;
       }
       
-      const res = await fetch(url);
-      if (!res.ok) {
-        throw new Error('Failed to fetch squad player statistics');
+      let data;
+      try {
+        const res = await fetch(url);
+        if (res.ok) {
+          data = await res.json();
+        } else {
+          console.warn('Backend API returned non-ok status, attempting direct client-side fetch.');
+        }
+      } catch (fetchErr) {
+        console.warn('Backend API unreachable, attempting direct client-side fetch.', fetchErr);
       }
-      const data = await res.json();
+
+      if (!data) {
+        // Fallback to client-side direct fetch
+        data = await getPlayerCardData(uname, countryCode);
+      }
+
       setPlayerData(data);
     } catch (err: any) {
       console.error(err);
