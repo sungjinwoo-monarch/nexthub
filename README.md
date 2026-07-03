@@ -1,6 +1,3 @@
-<div align="center">
-
-![image alt]([image_url](https://github.com/sungjinwoo-monarch/nexthub/blob/main/logo.png?raw=true))
 
 # NextHub
 
@@ -18,13 +15,6 @@ A modern GitHub developer discovery platform that transforms GitHub profiles int
 
 ---
 
-# Preview
-
-<p align="center">
-<img src="./assets/logo.png" width="420">
-</p>
-
----
 
 # Overview
 
