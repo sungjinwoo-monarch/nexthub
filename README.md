@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/logo.png" width="170" alt="NextHub Logo"/>
+![image alt]([image_url](https://github.com/sungjinwoo-monarch/nexthub/blob/main/logo.png?raw=true))
 
 # NextHub
 
