@@ -1,0 +1,6 @@
+{
+  "name": "NextHub",
+  "description": "Generate dynamic, live collectible athlete trading cards based on any GitHub username's activity, commits, stars, pull requests, and languages styled in a premium Neo-Brutalist aesthetic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
